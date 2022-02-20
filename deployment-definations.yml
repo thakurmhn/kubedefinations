@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: myapp-deploy
+  labels:
+    app: myapp
+    name: frontend
+
+spec:
+  template:
+# copied from prod defination
+    metadata:
+      name: myapp-pod
+      labels:
+        app: myapp
+        type: front_end
+
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx 
+  replicas: 6
+# For replicaset selector defination is required unlike Replication controller 
+  selector:
+    matchLabels:
+      type: front_end
