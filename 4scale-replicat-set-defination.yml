@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+
+metadata:
+  name: webapp-replica-set
+  labels: 
+    app: web-app
+    type: front-end
+spec: 
+  template:
+    ## Pod defination from pod defination file nginx-defination.yml
+    metadata:
+      name: web-app
+      labels:
+        app: web-app
+        type: front-end
+    spec:
+      containers:
+        - name: webapp-container
+          image: nginx
+  replicas: 4
+  selector: 
+    matchLabels:
+      type: front-end

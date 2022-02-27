@@ -21,7 +21,7 @@ spec:
       containers:
       - name: nginx-container
         image: nginx 
-  replicas: 6
+  replicas: 3
 # For replicaset selector defination is required unlike Replication controller 
   selector:
     matchLabels:
