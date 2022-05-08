@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  nodeName: kubenode1  # Manually schedule pod on given node when scheduller is not running
+  containers:
+  -  image: nginx
+     name: nginx
